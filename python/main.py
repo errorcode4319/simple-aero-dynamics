@@ -6,14 +6,14 @@ from model import CylinderModel
 
 
 # 그리드 생성
-X, Y = utils.create_mesh_grid(-1, 1, -1, 1, 0.1)
+X, Y = utils.create_mesh_grid(-1, 1, -1, 1, 0.05)
 
 model = CylinderModel(X, Y)
 
 model.add_uniform_flow(50)  # 균일 유동
 model.add_source(100)       # 용출
-model.add_vortex(50)        # 와류
-model.add_doublet(100)      # 더블릿 
+model.add_vortex(100)       # 와류
+model.add_doublet(30)       # 더블릿 
 
 U, V = model.get_uv()
 
