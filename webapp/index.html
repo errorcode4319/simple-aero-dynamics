@@ -3,10 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>실린더 비양력 유동 해석</title>
-    <style>canvas { border: 1px solid #999 }</style>
+    <style></style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="center-container">
     <canvas id="frame" width="600" height="600"></canvas>
+
+    <table>
+        <thead>
+            <tr>
+            <th>유동</th>
+            <th></th>
+            <th>값</th>
+            <th>강도</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Uniform Flow</td>
+            <td><input type="checkbox" id="check_uniflow" checked/></td>
+            <td>Velocity</td>
+            <td><input type="number" id="uniflow_val" min="0" max="1000" value="10" /></td>
+            <td>x10</td>
+            </tr>
+            <tr>
+            <td>Source</td>
+            <td><input type="checkbox" id="check_source" /></td>
+            <td>Strength</td>
+            <td><input type="number" id="source_val" min="0" max="10000" value="1000" /></td>
+            <td>x1000</td>
+            </tr>
+            <tr>
+            <td>Sink</td>
+            <td><input type="checkbox" id="check_sink" /></td>
+            <td>Strength</td>
+            <td><input type="number" id="sink_val" min="0" max="10000" value="1000" /></td>
+            <td>x1000</td>
+            </tr>
+            <tr>
+            <td>Vortex</td>
+            <td><input type="checkbox" id="check_vortex" /></td>
+            <td>Circulation(Γ)</td>
+            <td><input type="number" id="vortex_val" min="0" max="10000" value="1000" /></td>
+            <td>x100</td>
+            </tr>
+            <tr>
+            <td>Doublet</td>
+            <td><input type="checkbox" id="check_doublet" /></td>
+            <td>Moment</td>
+            <td><input type="number" id="doublet_val" min="0" max="10000" value="500" /></td>
+            <td>x10000</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
     <script src="js/utils.js"></script>
     <script src="js/script.js"></script>
 </body>

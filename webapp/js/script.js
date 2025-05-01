@@ -21,11 +21,7 @@ function calc_vector(x, y) {
     let u = 0;
     let v = 0;
 
-    let uv_list = []
-
-    uv_list.push(uniform_flow(r, c, 1000))
-    uv_list.push(vortex(r, c, 1700000))
-    uv_list.push(doublet(r, c, 100000000))
+    const uv_list = get_uv_offset_list(r, c);
 
     console.log(uv_list)
     
@@ -68,16 +64,25 @@ function draw_vector(x, y, vec) {
 }
 
 // 전체 캔버스 초기화 및 벡터장 그리기
-
-console.log("draw canvas")
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-const spacing = SPACING;  // 벡터 간격
-for(let x=spacing/2; x<canvas.width; x+=spacing) {
-    for(let y=spacing/2; y<canvas.height; y+=spacing) {
-        const vec = calc_vector(x, y);
-
-        console.log(vec)
-
-        draw_vector(x, y, vec);
+function update_all() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const spacing = SPACING;  // 벡터 간격
+    for(let x=spacing/2; x<canvas.width; x+=spacing) {
+        for(let y=spacing/2; y<canvas.height; y+=spacing) {
+            const vec = calc_vector(x, y);
+            console.log(vec)
+            draw_vector(x, y, vec);
+        }
     }
 }
+
+function func(event) {
+    update_all();
+}
+  
+// body 내의 모든 input 요소에 change 이벤트 리스너 추가
+document.querySelectorAll('body input').forEach(input => {
+    input.addEventListener('change', func);
+});
+
+update_all()

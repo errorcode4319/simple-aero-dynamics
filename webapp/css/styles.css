@@ -1,0 +1,62 @@
+.center-container {
+    display: flex;
+    flex-direction: column;     /* 세로 방향 정렬 */
+    align-items: center;        /* 가로 중앙 정렬 */
+    justify-content: center;    /* (선택) 세로 중앙 정렬, 필요시 사용 */
+    min-height: 100vh;          /* 화면 전체 높이 */
+  }
+
+canvas { 
+    border: 1px solid #999 
+}
+
+table {
+    border-collapse: collapse;
+    width: 500px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+th, td {
+padding: 12px 16px;
+text-align: center;
+}
+
+th {
+background-color: #007bff;
+color: #fff;
+font-weight: 600;
+letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+background-color: #e9ecef;
+}
+
+tr:hover {
+background-color: #d1ecf1;
+}
+
+input[type="checkbox"] {
+width: 18px;
+height: 18px;
+accent-color: #007bff;
+}
+
+input[type="number"] {
+width: 60px;
+padding: 4px 8px;
+border: 1px solid #ced4da;
+border-radius: 4px;
+font-size: 1em;
+text-align: right;
+background: #fff;
+transition: border 0.2s;
+}
+
+input[type="number"]:focus {
+border: 1.5px solid #007bff;
+outline: none;
+}

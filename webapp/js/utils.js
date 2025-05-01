@@ -52,3 +52,26 @@ function doublet(r, c, moment) {
     
     return conv_velocity_polar2cartesian(r, c, v_r, v_c);
 }
+
+function get_uv_offset_list(r, c) {
+    
+    let uv_list = [];
+
+    const calc_list = [
+        {check_id: "check_uniflow", val_id: "uniflow_val", func: uniform_flow, val_scale: 10},
+        {check_id: "check_source", val_id: "source_val", func: source, val_scale: 100},
+        {check_id: "check_sink", val_id: "sink_val", func: sink, val_scale: 100},
+        {check_id: "check_vortex", val_id: "vortex_val", func: vortex, val_scale: 100},
+        {check_id: "check_doublet", val_id: "doublet_val", func: doublet, val_scale: 50000},
+    ];
+
+    for (calc of calc_list) {
+        const check = document.getElementById(calc.check_id);
+        const val = document.getElementById(calc.val_id);
+        if (check.checked) {
+            uv_list.push(calc.func(r, c, Number(val.value) * calc.val_scale));
+        }
+    }
+
+    return uv_list;
+}
